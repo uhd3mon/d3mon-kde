@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "d3mon"
+            }
+        ],
+        "Category": "",
+        "Description": "Flat off-white d3mon theme with a green accent",
+        "Id": "org.d3mon.light",
+        "License": "GPLv2+",
+        "Name": "d3mon Light",
+        "Website": "https://github.com/uhd3mon/d3mon-kde"
+    }
+}

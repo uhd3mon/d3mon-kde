@@ -1,0 +1,18 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "d3mon"
+            }
+        ],
+        "Category": "",
+        "Description": "d3mon: Breeze with quiet task manager highlights (follows the colour scheme)",
+        "EnabledByDefault": true,
+        "Id": "d3mon",
+        "License": "LGPL",
+        "Name": "d3mon",
+        "Version": "1.0",
+        "Website": "https://github.com/uhd3mon/d3mon-kde"
+    },
+    "X-Plasma-API": "5.0"
+}

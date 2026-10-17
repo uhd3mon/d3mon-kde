@@ -1,0 +1,18 @@
+# Secrets and local-only files
+.env
+*.key
+*.pem
+*.local
+notes/
+
+# Backups and scratch
+*.bak
+*.orig
+*.rej
+*~
+
+# Screenshots shared in chat (personal)
+uploads/
+
+# Built theme packages (tools/package.sh)
+dist/

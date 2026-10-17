@@ -1,0 +1,16 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "d3mon"
+            }
+        ],
+        "Category": "",
+        "Description": "Flat near-black d3mon theme with a green accent",
+        "Id": "org.d3mon.dark",
+        "License": "GPLv2+",
+        "Name": "d3mon Dark",
+        "Website": "https://github.com/uhd3mon/d3mon-kde"
+    }
+}

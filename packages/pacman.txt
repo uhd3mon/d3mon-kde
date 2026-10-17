@@ -1,0 +1,13 @@
+# Official repo packages, one per line. Lines starting with # and
+# text after " #" are ignored, so add your own apps here.
+#
+# Steam is listed below but is only installed when [multilib] is
+# enabled (and not with --skip-steam). The matching lib32 Vulkan
+# driver (radeon / intel / nvidia) is added for your GPU.
+
+steam
+mpv
+kitty
+obs-studio
+obs-studio-plugin-browser   # browser source (overlays, alerts)
+ttf-jetbrains-mono-nerd     # Kitty + Konsole font

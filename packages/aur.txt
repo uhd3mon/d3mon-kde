@@ -1,0 +1,5 @@
+# AUR packages (installed with yay), one per line. Comments as in
+# pacman.txt. lib32-* packages are skipped when [multilib] is off.
+
+obs-vkcapture          # OBS game capture for Vulkan/OpenGL games
+lib32-obs-vkcapture    # same, for 32-bit games

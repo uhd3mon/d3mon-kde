@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="208" height="168" viewBox="0 0 208 168">
+<style id="current-color-scheme" type="text/css">
+.ColorScheme-Text { color:#f8f8f2; }
+.ColorScheme-Highlight { color:#91e611; }
+.ColorScheme-HighlightedText { color:#0b0b0b; }
+.ColorScheme-NeutralText { color:#f5b841; }
+.ColorScheme-PositiveText { color:#91e611; }
+</style>
+<g id="normal-topleft">
+  <path d="M0 0h4v4h-4z" fill="none"/>
+</g>
+<g id="normal-topright">
+  <path d="M44 0h4v4h-4z" fill="none"/>
+</g>
+<g id="normal-bottomleft">
+  <path d="M0 44h4v4h-4z" fill="none"/>
+</g>
+<g id="normal-bottomright">
+  <path d="M44 44h4v4h-4z" fill="none"/>
+</g>
+<g id="normal-top"><path d="M4 0h40v4h-40z" fill="none"/></g>
+<g id="normal-bottom"><path d="M4 44h40v4h-40z" fill="none"/></g>
+<g id="normal-left"><path d="M0 4h4v40h-4z" fill="none"/></g>
+<g id="normal-right"><path d="M44 4h4v40h-4z" fill="none"/></g>
+<g id="normal-center">
+  <path d="M4 4h40v40h-40z" fill="none"/>
+  <circle class="ColorScheme-Text" cx="24" cy="42" r="1.6" fill="currentColor" opacity="0.55"/>
+</g>
+<g id="hover-topleft">
+  <path d="M52 0h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M52 4a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="hover-topright">
+  <path d="M96 0h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M96 0a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="hover-bottomleft">
+  <path d="M52 44h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M52 44h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="hover-bottomright">
+  <path d="M96 44h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M96 44h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="hover-top"><path class="ColorScheme-Text" d="M56 0h40v4h-40z" fill="currentColor" opacity="0.08"/></g>
+<g id="hover-bottom"><path class="ColorScheme-Text" d="M56 44h40v4h-40z" fill="currentColor" opacity="0.08"/></g>
+<g id="hover-left"><path class="ColorScheme-Text" d="M52 4h4v40h-4z" fill="currentColor" opacity="0.08"/></g>
+<g id="hover-right"><path class="ColorScheme-Text" d="M96 4h4v40h-4z" fill="currentColor" opacity="0.08"/></g>
+<g id="hover-center">
+  <path class="ColorScheme-Text" d="M56 4h40v40h-40z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="launcher-hover-topleft">
+  <path d="M104 0h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M104 4a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="launcher-hover-topright">
+  <path d="M148 0h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M148 0a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="launcher-hover-bottomleft">
+  <path d="M104 44h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M104 44h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="launcher-hover-bottomright">
+  <path d="M148 44h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M148 44h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="launcher-hover-top"><path class="ColorScheme-Text" d="M108 0h40v4h-40z" fill="currentColor" opacity="0.08"/></g>
+<g id="launcher-hover-bottom"><path class="ColorScheme-Text" d="M108 44h40v4h-40z" fill="currentColor" opacity="0.08"/></g>
+<g id="launcher-hover-left"><path class="ColorScheme-Text" d="M104 4h4v40h-4z" fill="currentColor" opacity="0.08"/></g>
+<g id="launcher-hover-right"><path class="ColorScheme-Text" d="M148 4h4v40h-4z" fill="currentColor" opacity="0.08"/></g>
+<g id="launcher-hover-center">
+  <path class="ColorScheme-Text" d="M108 4h40v40h-40z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="focus-topleft">
+  <path d="M156 0h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M156 4a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.1"/>
+</g>
+<g id="focus-topright">
+  <path d="M200 0h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M200 0a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.1"/>
+</g>
+<g id="focus-bottomleft">
+  <path d="M156 44h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M156 44h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.1"/>
+</g>
+<g id="focus-bottomright">
+  <path d="M200 44h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M200 44h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.1"/>
+</g>
+<g id="focus-top"><path class="ColorScheme-Text" d="M160 0h40v4h-40z" fill="currentColor" opacity="0.1"/></g>
+<g id="focus-bottom"><path class="ColorScheme-Text" d="M160 44h40v4h-40z" fill="currentColor" opacity="0.1"/></g>
+<g id="focus-left"><path class="ColorScheme-Text" d="M156 4h4v40h-4z" fill="currentColor" opacity="0.1"/></g>
+<g id="focus-right"><path class="ColorScheme-Text" d="M200 4h4v40h-4z" fill="currentColor" opacity="0.1"/></g>
+<g id="focus-center">
+  <path class="ColorScheme-Text" d="M160 4h40v40h-40z" fill="currentColor" opacity="0.1"/>
+  <rect class="ColorScheme-Highlight" x="172" y="41" width="16" height="3" rx="1.5" fill="currentColor" opacity="1"/>
+</g>
+<g id="focus-hover-topleft">
+  <path d="M0 52h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M0 56a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.15"/>
+</g>
+<g id="focus-hover-topright">
+  <path d="M44 52h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M44 52a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.15"/>
+</g>
+<g id="focus-hover-bottomleft">
+  <path d="M0 96h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M0 96h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.15"/>
+</g>
+<g id="focus-hover-bottomright">
+  <path d="M44 96h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M44 96h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.15"/>
+</g>
+<g id="focus-hover-top"><path class="ColorScheme-Text" d="M4 52h40v4h-40z" fill="currentColor" opacity="0.15"/></g>
+<g id="focus-hover-bottom"><path class="ColorScheme-Text" d="M4 96h40v4h-40z" fill="currentColor" opacity="0.15"/></g>
+<g id="focus-hover-left"><path class="ColorScheme-Text" d="M0 56h4v40h-4z" fill="currentColor" opacity="0.15"/></g>
+<g id="focus-hover-right"><path class="ColorScheme-Text" d="M44 56h4v40h-4z" fill="currentColor" opacity="0.15"/></g>
+<g id="focus-hover-center">
+  <path class="ColorScheme-Text" d="M4 56h40v40h-40z" fill="currentColor" opacity="0.15"/>
+  <rect class="ColorScheme-Highlight" x="16" y="93" width="16" height="3" rx="1.5" fill="currentColor" opacity="1"/>
+</g>
+<g id="minimized-topleft">
+  <path d="M52 52h4v4h-4z" fill="none"/>
+</g>
+<g id="minimized-topright">
+  <path d="M96 52h4v4h-4z" fill="none"/>
+</g>
+<g id="minimized-bottomleft">
+  <path d="M52 96h4v4h-4z" fill="none"/>
+</g>
+<g id="minimized-bottomright">
+  <path d="M96 96h4v4h-4z" fill="none"/>
+</g>
+<g id="minimized-top"><path d="M56 52h40v4h-40z" fill="none"/></g>
+<g id="minimized-bottom"><path d="M56 96h40v4h-40z" fill="none"/></g>
+<g id="minimized-left"><path d="M52 56h4v40h-4z" fill="none"/></g>
+<g id="minimized-right"><path d="M96 56h4v40h-4z" fill="none"/></g>
+<g id="minimized-center">
+  <path d="M56 56h40v40h-40z" fill="none"/>
+  <circle class="ColorScheme-Text" cx="76" cy="94" r="1.6" fill="currentColor" opacity="0.3"/>
+</g>
+<g id="minimized-hover-topleft">
+  <path d="M104 52h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M104 56a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="minimized-hover-topright">
+  <path d="M148 52h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M148 52a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="minimized-hover-bottomleft">
+  <path d="M104 96h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M104 96h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="minimized-hover-bottomright">
+  <path d="M148 96h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-Text" d="M148 96h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.08"/>
+</g>
+<g id="minimized-hover-top"><path class="ColorScheme-Text" d="M108 52h40v4h-40z" fill="currentColor" opacity="0.08"/></g>
+<g id="minimized-hover-bottom"><path class="ColorScheme-Text" d="M108 96h40v4h-40z" fill="currentColor" opacity="0.08"/></g>
+<g id="minimized-hover-left"><path class="ColorScheme-Text" d="M104 56h4v40h-4z" fill="currentColor" opacity="0.08"/></g>
+<g id="minimized-hover-right"><path class="ColorScheme-Text" d="M148 56h4v40h-4z" fill="currentColor" opacity="0.08"/></g>
+<g id="minimized-hover-center">
+  <path class="ColorScheme-Text" d="M108 56h40v40h-40z" fill="currentColor" opacity="0.08"/>
+  <circle class="ColorScheme-Text" cx="128" cy="94" r="1.6" fill="currentColor" opacity="0.45"/>
+</g>
+<g id="attention-topleft">
+  <path d="M156 52h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M156 56a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.12"/>
+</g>
+<g id="attention-topright">
+  <path d="M200 52h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M200 52a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.12"/>
+</g>
+<g id="attention-bottomleft">
+  <path d="M156 96h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M156 96h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.12"/>
+</g>
+<g id="attention-bottomright">
+  <path d="M200 96h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M200 96h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.12"/>
+</g>
+<g id="attention-top"><path class="ColorScheme-NeutralText" d="M160 52h40v4h-40z" fill="currentColor" opacity="0.12"/></g>
+<g id="attention-bottom"><path class="ColorScheme-NeutralText" d="M160 96h40v4h-40z" fill="currentColor" opacity="0.12"/></g>
+<g id="attention-left"><path class="ColorScheme-NeutralText" d="M156 56h4v40h-4z" fill="currentColor" opacity="0.12"/></g>
+<g id="attention-right"><path class="ColorScheme-NeutralText" d="M200 56h4v40h-4z" fill="currentColor" opacity="0.12"/></g>
+<g id="attention-center">
+  <path class="ColorScheme-NeutralText" d="M160 56h40v40h-40z" fill="currentColor" opacity="0.12"/>
+  <rect class="ColorScheme-NeutralText" x="172" y="93" width="16" height="3" rx="1.5" fill="currentColor" opacity="1"/>
+</g>
+<g id="attention-hover-topleft">
+  <path d="M0 104h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M0 108a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.18"/>
+</g>
+<g id="attention-hover-topright">
+  <path d="M44 104h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M44 104a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.18"/>
+</g>
+<g id="attention-hover-bottomleft">
+  <path d="M0 148h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M0 148h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.18"/>
+</g>
+<g id="attention-hover-bottomright">
+  <path d="M44 148h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-NeutralText" d="M44 148h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.18"/>
+</g>
+<g id="attention-hover-top"><path class="ColorScheme-NeutralText" d="M4 104h40v4h-40z" fill="currentColor" opacity="0.18"/></g>
+<g id="attention-hover-bottom"><path class="ColorScheme-NeutralText" d="M4 148h40v4h-40z" fill="currentColor" opacity="0.18"/></g>
+<g id="attention-hover-left"><path class="ColorScheme-NeutralText" d="M0 108h4v40h-4z" fill="currentColor" opacity="0.18"/></g>
+<g id="attention-hover-right"><path class="ColorScheme-NeutralText" d="M44 108h4v40h-4z" fill="currentColor" opacity="0.18"/></g>
+<g id="attention-hover-center">
+  <path class="ColorScheme-NeutralText" d="M4 108h40v40h-40z" fill="currentColor" opacity="0.18"/>
+  <rect class="ColorScheme-NeutralText" x="16" y="145" width="16" height="3" rx="1.5" fill="currentColor" opacity="1"/>
+</g>
+<g id="progress-topleft">
+  <path d="M52 104h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-PositiveText" d="M52 108a4 4 0 0 1 4 -4v4z" fill="currentColor" opacity="0.22"/>
+</g>
+<g id="progress-topright">
+  <path d="M96 104h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-PositiveText" d="M96 104a4 4 0 0 1 4 4h-4z" fill="currentColor" opacity="0.22"/>
+</g>
+<g id="progress-bottomleft">
+  <path d="M52 148h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-PositiveText" d="M52 148h4v4a4 4 0 0 1 -4 -4z" fill="currentColor" opacity="0.22"/>
+</g>
+<g id="progress-bottomright">
+  <path d="M96 148h4v4h-4z" fill="none"/>
+  <path class="ColorScheme-PositiveText" d="M96 148h4a4 4 0 0 1 -4 4z" fill="currentColor" opacity="0.22"/>
+</g>
+<g id="progress-top"><path class="ColorScheme-PositiveText" d="M56 104h40v4h-40z" fill="currentColor" opacity="0.22"/></g>
+<g id="progress-bottom"><path class="ColorScheme-PositiveText" d="M56 148h40v4h-40z" fill="currentColor" opacity="0.22"/></g>
+<g id="progress-left"><path class="ColorScheme-PositiveText" d="M52 108h4v40h-4z" fill="currentColor" opacity="0.22"/></g>
+<g id="progress-right"><path class="ColorScheme-PositiveText" d="M96 108h4v40h-4z" fill="currentColor" opacity="0.22"/></g>
+<g id="progress-center">
+  <path class="ColorScheme-PositiveText" d="M56 108h40v40h-40z" fill="currentColor" opacity="0.22"/>
+</g>
+<rect id="normal-hint-top-margin" x="0" y="156" width="4" height="4" fill="none"/>
+<rect id="normal-hint-bottom-margin" x="8" y="156" width="4" height="4" fill="none"/>
+<rect id="normal-hint-left-margin" x="16" y="156" width="4" height="4" fill="none"/>
+<rect id="normal-hint-right-margin" x="24" y="156" width="4" height="4" fill="none"/>
+<g id="group-expander-top">
+  <circle class="ColorScheme-Highlight" cx="37" cy="161" r="5" fill="currentColor"/>
+  <path class="ColorScheme-HighlightedText" d="M36.25 158.5h1.5v1.75h1.75v1.5h-1.75v1.75h-1.5v-1.75h-1.75v-1.5h1.75z" fill="currentColor"/>
+</g>
+<g id="group-expander-bottom">
+  <circle class="ColorScheme-Highlight" cx="51" cy="161" r="5" fill="currentColor"/>
+  <path class="ColorScheme-HighlightedText" d="M50.25 158.5h1.5v1.75h1.75v1.5h-1.75v1.75h-1.5v-1.75h-1.75v-1.5h1.75z" fill="currentColor"/>
+</g>
+<g id="group-expander-left">
+  <circle class="ColorScheme-Highlight" cx="65" cy="161" r="5" fill="currentColor"/>
+  <path class="ColorScheme-HighlightedText" d="M64.25 158.5h1.5v1.75h1.75v1.5h-1.75v1.75h-1.5v-1.75h-1.75v-1.5h1.75z" fill="currentColor"/>
+</g>
+<g id="group-expander-right">
+  <circle class="ColorScheme-Highlight" cx="79" cy="161" r="5" fill="currentColor"/>
+  <path class="ColorScheme-HighlightedText" d="M78.25 158.5h1.5v1.75h1.75v1.5h-1.75v1.75h-1.5v-1.75h-1.75v-1.5h1.75z" fill="currentColor"/>
+</g>
+</svg>

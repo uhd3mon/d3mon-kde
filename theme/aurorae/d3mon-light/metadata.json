@@ -1,0 +1,15 @@
+{
+    "KPackageStructure": "KWin/Aurorae",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "d3mon"
+            }
+        ],
+        "Description": "Flat titlebar, centred title, round buttons",
+        "Id": "d3mon-light",
+        "License": "GPLv2+",
+        "Name": "d3mon Light",
+        "Version": "1.0"
+    }
+}

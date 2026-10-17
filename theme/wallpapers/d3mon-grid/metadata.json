@@ -1,0 +1,12 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Name": "d3mon"
+            }
+        ],
+        "Description": "d3mon grid with a soft centre glow (dark and light)",
+        "Id": "d3mon-grid",
+        "Name": "d3mon Grid"
+    }
+}
