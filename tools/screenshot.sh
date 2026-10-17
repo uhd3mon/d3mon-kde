@@ -67,7 +67,7 @@ EOF
 
 if [[ "${D3MON_SHOT_VIA:-script}" == kde ]]; then
 	# Install only the way System Settings would (dist/ packages via
-	# kpackagetool6, icons unpacked); no install.sh, no colour scheme
+	# kpackagetool6, icons unpacked); no theme.sh, no colour scheme
 	# file: the Global Theme must bring its colours itself.
 	"$REPO/tools/package.sh" "$WORK/dist" >"$WORK/install.log"
 	D="$WORK/dist"
@@ -84,7 +84,7 @@ if [[ "${D3MON_SHOT_VIA:-script}" == kde ]]; then
 		tar -C "$FAKE/.local/share/icons" -xzf "$D/d3mon-icons.tar.gz" || true
 	} >>"$WORK/install.log" 2>&1
 else
-	HOME="$FAKE" D3MON_NO_LIVE=1 "$REPO/install.sh" --apply --skip-packages \
+	HOME="$FAKE" D3MON_NO_LIVE=1 "$REPO/theme.sh" --apply \
 		--theme "$THEME" >"$WORK/install.log"
 fi
 

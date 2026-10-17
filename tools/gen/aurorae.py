@@ -4,6 +4,7 @@
 usage: aurorae.py AURORAE_DIR   (AURORAE_DIR = theme/aurorae)
 Element names follow KDE aurorae v2 (decoration.cpp/decorationbutton.cpp).
 """
+import json
 import os
 import sys
 
@@ -13,23 +14,31 @@ P = 14          # shadow padding on every side
 R = 8           # top corner radius
 IN = 10         # window part inside the corner/side elements (> R)
 EDGE_H = 2      # bottom border (outline + 1 px)
+DESC = "Flat titlebar, centred title, line buttons"
 TITLE = 30      # TitleEdgeTop + TitleHeight + TitleEdgeBottom
-BW, BH, DOT = 18, 22, 6.5   # button cell + dot radius
+BW, BH = 32, 24     # flat button cell (fills the 30 px titlebar minus 3+3)
+EDGE_T = (TITLE - BH) // 2
+SW = 1.4            # glyph stroke; lines sit on .5 so 1x stays one pixel
 
 VARIANTS = {
     "d3mon": dict(name="d3mon", bg="#141416", line="#2a2b2f", shadow=0.42,
                   shadow_in=0.26, text="#c6c9c3", text_in="#6d706b",
-                  idle="#3a3c40", glyph="#0d0d0e"),
+                  hover="#26272b", press="#313237",
+                  close="#e5534b", close_press="#c4433c", close_ink="#fbfbfa"),
     "d3mon-light": dict(name="d3mon Light", bg="#f2f3ef", line="#d3d4cf",
                         shadow=0.20, shadow_in=0.12, text="#2a2b2e",
-                        text_in="#8a8c88", idle="#c9cac5", glyph="#2a2b2e"),
+                        text_in="#8a8c88", hover="#dcddd8", press="#cdcec8",
+                        close="#e0483f", close_press="#c23a32", close_ink="#ffffff"),
 }
 
+# Line glyphs in a 10x10 box centred on the cell (cell coordinates).
+CX, CY = BW // 2, BH // 2
 BUTTONS = {
-    "close": ("#ff5f56", '<path d="M-2.6-2.6 2.6 2.6M2.6-2.6-2.6 2.6" stroke="{g}" stroke-width="1.4" stroke-linecap="round" opacity=".75"/>'),
-    "minimize": ("#f0b43c", '<path d="M-3 0H3" stroke="{g}" stroke-width="1.5" stroke-linecap="round" opacity=".75"/>'),
-    "maximize": ("#91e611", '<path d="M-3 1V-3H1zM3-1V3H-1z" fill="{g}" opacity=".75"/>'),
-    "restore": ("#91e611", '<path d="M-.4-.4V-4.2H-4.2zM.4 .4V4.2H4.2z" fill="{g}" opacity=".75"/>'),
+    "minimize": f"M{CX - 5} {CY + 0.5}H{CX + 5}",
+    "maximize": f"M{CX - 4.5} {CY - 4.5}h9v9h-9z",
+    "restore": (f"M{CX - 4.5} {CY - 2.5}h7v7h-7z"
+                f"M{CX - 2.5} {CY - 2.5}V{CY - 4.5}h7v7H{CX + 2.5}"),
+    "close": f"M{CX - 4.5} {CY - 4.5}l9 9M{CX + 4.5} {CY - 4.5}l-9 9",
 }
 
 
@@ -170,34 +179,38 @@ def decoration(v):
             f'<defs>\n{defs}</defs>\n{body}</svg>\n')
 
 
-def button(v, colour, glyph):
-    g = glyph.format(g=v["glyph"])
-    darker = shade(colour, 0.78)
+def button(v, kind):
+    """Flat cell, line glyph in the title colour; hover = soft rounded fill."""
+    path = BUTTONS[kind]
+    close = kind == "close"
+    cap = "round" if close else "butt"
+    hov = v["close"] if close else v["hover"]
+    prs = v["close_press"] if close else v["press"]
+    ink_h = v["close_ink"] if close else v["text"]
+    # state: (fill or None, glyph colour, glyph opacity)
     states = [
-        ("active", colour, ""),
-        ("hover", colour, g),
-        ("pressed", darker, g),
-        ("deactivated", v["idle"], ""),
-        ("inactive", v["idle"], ""),
-        ("hover-inactive", colour, g),
-        ("pressed-inactive", darker, g),
-        ("deactivated-inactive", v["idle"], ""),
+        ("active", None, v["text"], 1),
+        ("hover", hov, ink_h, 1),
+        ("pressed", prs, ink_h, 1),
+        ("deactivated", None, v["text"], .35),
+        ("inactive", None, v["text_in"], 1),
+        ("hover-inactive", hov, v["close_ink"] if close else v["text"], 1),
+        ("pressed-inactive", prs, v["close_ink"] if close else v["text"], 1),
+        ("deactivated-inactive", None, v["text_in"], .35),
     ]
-    out = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{BW * len(states) + 4 * len(states)}" '
-           f'height="{BH}" viewBox="0 0 {(BW + 4) * len(states)} {BH}">\n')
-    for i, (state, fill, mark) in enumerate(states):
-        x = i * (BW + 4)
-        op = ' opacity=".45"' if state.startswith("deactivated") else ""
-        out += (f'<g id="{state}-center"{op}>'
-                f'<rect x="{x}" y="0" width="{BW}" height="{BH}" fill="#000" opacity="0"/>'
-                f'<circle cx="{x + BW / 2}" cy="{BH / 2}" r="{DOT}" fill="{fill}"/>'
-                f'<g transform="translate({x + BW / 2} {BH / 2})">{mark}</g></g>\n')
+    step = BW + 4
+    out = (f'<svg xmlns="http://www.w3.org/2000/svg" width="{step * len(states)}" '
+           f'height="{BH}" viewBox="0 0 {step * len(states)} {BH}">\n')
+    for i, (state, fill, ink, op) in enumerate(states):
+        x = i * step
+        bg = (f'<rect x="{x + 2}" y="2" width="{BW - 4}" height="{BH - 4}" rx="5" fill="{fill}"/>'
+              if fill else "")
+        dim = f' opacity="{op}"' if op != 1 else ""
+        out += (f'<g id="{state}-center">'
+                f'<rect x="{x}" y="0" width="{BW}" height="{BH}" fill="#000" opacity="0"/>{bg}'
+                f'<path transform="translate({x} 0)" d="{path}" fill="none" stroke="{ink}" '
+                f'stroke-width="{SW}" stroke-linecap="{cap}" stroke-linejoin="miter"{dim}/></g>\n')
     return out + "</svg>\n"
-
-
-def shade(hexc, f):
-    r, g, b = (int(hexc[i:i + 2], 16) for i in (1, 3, 5))
-    return "#%02x%02x%02x" % (int(r * f), int(g * f), int(b * f))
 
 
 def rc(v):
@@ -212,20 +225,20 @@ Animation=150
 BorderLeft=2
 BorderRight=2
 BorderBottom={EDGE_H}
-TitleEdgeTop=4
-TitleEdgeBottom=4
-TitleEdgeLeft=10
-TitleEdgeRight=10
-TitleEdgeTopMaximized=4
-TitleEdgeBottomMaximized=4
-TitleEdgeLeftMaximized=8
-TitleEdgeRightMaximized=8
+TitleEdgeTop={EDGE_T}
+TitleEdgeBottom={EDGE_T}
+TitleEdgeLeft=6
+TitleEdgeRight=6
+TitleEdgeTopMaximized={EDGE_T}
+TitleEdgeBottomMaximized={EDGE_T}
+TitleEdgeLeftMaximized=4
+TitleEdgeRightMaximized=4
 TitleBorderLeft=8
 TitleBorderRight=8
-TitleHeight={TITLE - 8}
+TitleHeight={TITLE - 2 * EDGE_T}
 ButtonWidth={BW}
 ButtonHeight={BH}
-ButtonSpacing=2
+ButtonSpacing=0
 ButtonMarginTop=0
 ButtonMarginTopMaximized=0
 ExplicitButtonSpacer=10
@@ -243,11 +256,25 @@ def hexrgb(h):
 def metadata(theme, v):
     return f"""[Desktop Entry]
 Name={v["name"]}
-Comment=d3mon window decoration: flat titlebar, centred title, round buttons
+Comment=d3mon window decoration: {DESC[0].lower()}{DESC[1:]}
 X-KDE-PluginInfo-Name={theme}
 X-KDE-PluginInfo-Author=d3mon
-X-KDE-PluginInfo-Version=1.0
+X-KDE-PluginInfo-Version=2.0
 """
+
+
+def metadata_json(theme, v):
+    return json.dumps({
+        "KPackageStructure": "KWin/Aurorae",
+        "KPlugin": {
+            "Authors": [{"Name": "d3mon"}],
+            "Description": DESC,
+            "Id": theme,
+            "License": "GPLv2+",
+            "Name": v["name"],
+            "Version": "2.0",
+        },
+    }, indent=4) + "\n"
 
 
 for theme, v in VARIANTS.items():
@@ -255,11 +282,12 @@ for theme, v in VARIANTS.items():
     os.makedirs(d, exist_ok=True)
     files = {
         "metadata.desktop": metadata(theme, v),
+        "metadata.json": metadata_json(theme, v),
         theme + "rc": rc(v),
         "decoration.svg": decoration(v),
     }
-    for b, (colour, glyph) in BUTTONS.items():
-        files[b + ".svg"] = button(v, colour, glyph)
+    for b in BUTTONS:
+        files[b + ".svg"] = button(v, b)
     for name, text in files.items():
         with open(os.path.join(d, name), "w") as f:
             f.write(text)

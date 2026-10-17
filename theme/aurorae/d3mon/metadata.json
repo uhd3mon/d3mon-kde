@@ -6,10 +6,10 @@
                 "Name": "d3mon"
             }
         ],
-        "Description": "Flat titlebar, centred title, round buttons",
+        "Description": "Flat titlebar, centred title, line buttons",
         "Id": "d3mon",
         "License": "GPLv2+",
         "Name": "d3mon",
-        "Version": "1.0"
+        "Version": "2.0"
     }
 }

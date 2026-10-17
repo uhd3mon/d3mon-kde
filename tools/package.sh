@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Builds the d3mon theme as files KDE's own settings pages can install
-# ("Install from File…"), without install.sh. Output: dist/ (or $1).
+# ("Install from File…"), without theme.sh. Output: dist/ (or $1).
 #
 #   Global Theme   d3mon-dark.globaltheme.tar.gz, d3mon-light...
 #                  (each carries its colour scheme as contents/colors)

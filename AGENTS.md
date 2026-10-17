@@ -31,7 +31,13 @@ KDE itself is installed by archinstall, not by this script.
 
 ## Layout
 
-- `install.sh` — entry point (options, plan, steps)
+- `install.sh` — thin wrapper: runs `apps.sh`, then `theme.sh`
+- `apps.sh` — packages only (pacman + Steam/multilib, AUR via yay;
+  the only part that uses sudo)
+- `theme.sh` — per user, no sudo: installs every theme file into
+  KDE, the app configs, and applies the theme
+- `lib/common.sh` — shared helpers (output, run, backups,
+  install_file/tree, cfg_set, counters), sourced by both
 - `packages/pacman.txt`, `packages/aur.txt` — app lists
 - `theme/color-schemes/` -> `~/.local/share/color-schemes/`
 - `theme/icons/d3mon/` -> `~/.local/share/icons/d3mon/`
@@ -48,7 +54,7 @@ KDE itself is installed by archinstall, not by this script.
 - `tools/package.sh` — builds `dist/` (gitignored): packages for
   System Settings "Install from File" + kpackagetool6
 - `tools/screenshot.sh` — nested throwaway Plasma session shots
-  (`D3MON_SHOT_VIA=kde` installs from dist/ instead of install.sh)
+  (`D3MON_SHOT_VIA=kde` installs from dist/ instead of theme.sh)
 - `tools/gen/` — generators for icons, Aurorae, tasks.svg, wallpapers
 - `docs/screenshots/` — real screenshots for the README
 
@@ -58,10 +64,12 @@ Colours live in `theme/color-schemes/`; the Aurorae `bg` in
 ## Checks (verified 2026-10-17)
 
 ```sh
-bash -n install.sh tools/*.sh            # syntax check
-./install.sh                             # dry run, changes nothing
+bash -n *.sh lib/*.sh tools/*.sh        # syntax check
+./apps.sh; ./theme.sh; ./install.sh      # dry runs, change nothing
+./theme.sh --bogus; echo $?              # unknown option -> 2
 # real file install into a throwaway HOME (run twice: 2nd = no changes)
-HOME=$(mktemp -d) D3MON_NO_LIVE=1 ./install.sh --apply --skip-packages
+F=$(mktemp -d)
+HOME=$F D3MON_NO_LIVE=1 ./theme.sh --apply
 tools/package.sh /tmp/d3dist             # build install-from-file packages
 tools/screenshot.sh dark /tmp/shots      # real nested Plasma screenshot
 D3MON_SHOT_VIA=kde tools/screenshot.sh dark /tmp/shots
