@@ -15,7 +15,7 @@ Runs apps.sh (Steam, MPV, Kitty, OBS; needs sudo) and then theme.sh
   --dry-run           Print every action, change nothing (default)
   --apply             Really install
   --theme dark|light  Theme to apply (default: dark)
-  --layout            Also replace your panels (top bar + dock)
+  --layout            Also replace your panels (top bar)
   --skip-packages     Do not run apps.sh
   --skip-theme        Do not run theme.sh
   --skip-steam        Do not install Steam

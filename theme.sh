@@ -34,7 +34,7 @@ Kitty and MPV configs. No sudo, nothing to download.
   --apply             Really install and apply
   --theme dark|light  Theme to apply (default: dark)
   --layout            Also replace your panels with the d3mon layout
-                      (top bar + floating dock). Off by default.
+                      (top bar with pinned apps). Off by default.
   --skip-configs      Do not install configs/ (kitty, mpv)
   -h, --help          Show this help
 

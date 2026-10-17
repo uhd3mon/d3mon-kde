@@ -1,12 +1,13 @@
-// d3mon desktop layout (Dracula-like): a thin top bar and a floating
-// dock. Used only when the layout is applied on purpose
-// (plasma-apply-lookandfeel --resetLayout, or install.sh --layout);
+// d3mon desktop layout (Dracula-like): one thin top bar, no dock.
+// Used only when the layout is applied on purpose
+// (plasma-apply-lookandfeel --resetLayout, or theme.sh --layout);
 // it replaces the current panels.
 
-// Top bar: launcher, app menu | clock (centred) | system tray
+// Top bar: launcher, pinned apps | clock (centred) | system tray.
+// No app menu (File, Edit, ...): apps keep their own menus.
 var top = new Panel
 top.location = "top"
-top.height = 2 * Math.ceil(gridUnit * 1.6 / 2)
+top.height = 2 * Math.ceil(gridUnit * 1.8 / 2)
 top.floating = false
 top.lengthMode = "fill"
 
@@ -14,38 +15,12 @@ var kickoff = top.addWidget("org.kde.plasma.kickoff")
 kickoff.currentConfigGroup = ["General"]
 kickoff.writeConfig("icon", "start-here-kde-symbolic")
 
-top.addWidget("org.kde.plasma.appmenu")
-// Two expanding spacers share the free space, so the clock sits in
-// the middle (exactly centred when both sides are the same width).
-top.addWidget("org.kde.plasma.panelspacer")
-
-var clock = top.addWidget("org.kde.plasma.digitalclock")
-clock.currentConfigGroup = ["Appearance"]
-clock.writeConfig("showDate", true)
-// One line, "17 Oct 2026  5:50 AM" (1 = date beside the time).
-clock.writeConfig("dateDisplayFormat", 1)
-clock.writeConfig("dateFormat", "custom")
-clock.writeConfig("customDateFormat", "d MMM yyyy")
-// Same size as the app menu, not scaled up to the panel height.
-clock.writeConfig("autoFontAndSize", false)
-clock.writeConfig("fontSize", 10)
-clock.writeConfig("fontWeight", 400)
-clock.writeConfig("fontStyleName", "Regular")
-
-top.addWidget("org.kde.plasma.panelspacer")
-top.addWidget("org.kde.plasma.systemtray")
-
-// Dock: icon-only task manager, centred, as wide as its icons.
-var dock = new Panel
-dock.location = "bottom"
-dock.height = 2 * Math.ceil(gridUnit * 2.75 / 2)
-dock.floating = true
-dock.lengthMode = "fit"
-dock.alignment = "center"
-dock.hiding = "none"
-
-var tasks = dock.addWidget("org.kde.plasma.icontasks")
+// Icon-only task manager beside the launcher: pinned apps plus the
+// running ones. It doesn't stretch, so the spacers keep the clock
+// in the middle of the free space.
+var tasks = top.addWidget("org.kde.plasma.icontasks")
 tasks.currentConfigGroup = ["General"]
+tasks.writeConfig("fill", false)
 // Pinned apps; ones that are not installed are left out (they would
 // show as blank icons).
 var apps = [
@@ -68,6 +43,24 @@ for (var i = 0; i < apps.length; i++) {
     }
 }
 tasks.writeConfig("launchers", launchers)
+
+top.addWidget("org.kde.plasma.panelspacer")
+
+var clock = top.addWidget("org.kde.plasma.digitalclock")
+clock.currentConfigGroup = ["Appearance"]
+clock.writeConfig("showDate", true)
+// One line, "17 Oct 2026  5:50 AM" (1 = date beside the time).
+clock.writeConfig("dateDisplayFormat", 1)
+clock.writeConfig("dateFormat", "custom")
+clock.writeConfig("customDateFormat", "d MMM yyyy")
+// Normal text size, not scaled up to the panel height.
+clock.writeConfig("autoFontAndSize", false)
+clock.writeConfig("fontSize", 10)
+clock.writeConfig("fontWeight", 400)
+clock.writeConfig("fontStyleName", "Regular")
+
+top.addWidget("org.kde.plasma.panelspacer")
+top.addWidget("org.kde.plasma.systemtray")
 
 var desktopsArray = desktopsForActivity(currentActivity())
 for (var j = 0; j < desktopsArray.length; j++) {

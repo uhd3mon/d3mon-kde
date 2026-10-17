@@ -12,8 +12,8 @@ KDE itself is not installed here; pick KDE Plasma in `archinstall`.
 ![d3mon Light](docs/screenshots/desktop-light.png)
 
 These are real screenshots of a nested Plasma 6.7 session
-(`tools/screenshot.sh`). The top bar + dock layout is optional
-(`--layout`).
+(`tools/screenshot.sh`). The top bar layout (launcher + pinned
+apps, clock, tray) is optional (`--layout`).
 
 ## Use
 
@@ -30,8 +30,8 @@ cd d3mon-kde
   Options: `--skip-steam`, `--skip-aur`.
 - `./theme.sh --apply` installs the whole theme into KDE for your
   user and applies it; nothing to download. Options:
-  `--theme light`, `--layout` (replaces your panels with the top
-  bar + floating dock; off by default), `--skip-configs` (no
+  `--theme light`, `--layout` (replaces your panels with one top
+  bar: launcher + pinned apps, clock, tray; off by default), `--skip-configs` (no
   Kitty/MPV configs).
 
 `install.sh` takes all of these, plus `--skip-packages` (no
@@ -52,7 +52,7 @@ From the AUR via `yay` (`packages/aur.txt`): obs-vkcapture
   System Settings → Colors & Themes → Global Theme
 - **Colours** D3monDark / D3monLight (KDE apps and GTK apps)
 - **Icons** d3mon / d3mon Light: folder icons, the rest is Breeze
-- **Plasma Style** d3mon: dock with an accent underline
+- **Plasma Style** d3mon: task buttons with an accent underline
 - **Window decoration** d3mon / d3mon Light: flat minimise,
   maximise and close buttons (red on close hover)
 - **Wallpaper** d3mon Grid (dark and light)
@@ -87,4 +87,4 @@ decorations, in `dist/`.
   konsole, wallpapers
 - `configs/`: kitty, mpv
 - `tools/`: `package.sh`, `screenshot.sh`, `gen/` (icon,
-  decoration, dock and wallpaper generators)
+  decoration, task button and wallpaper generators)

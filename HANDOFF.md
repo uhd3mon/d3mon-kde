@@ -19,6 +19,9 @@ GitHub: https://github.com/uhd3mon/d3mon-kde (public).
   "traffic light" window buttons replaced by flat line buttons.
   Git history rewritten without Claude co-author lines (Kevin's
   request); commits carry only Kevin's name from now on.
+- 2026-10-17: dock removed; pinned apps moved into the top bar
+  beside the launcher; app menu (File, Edit...) removed from the
+  bar (Kevin's request).
 
 ## Current state (2026-10-17)
 
@@ -53,7 +56,9 @@ Not yet run for real (packages, live apply on Kevin's desktop).
   v2.0 (flat 32x24 cells, line glyphs minus / square / two squares
   / X in the title colour, rounded hover fill, red close hover
   with white X); wallpaper d3mon-grid; Global Themes org.d3mon.dark
-  / .light (+ layout JS: top bar + dock). Konsole, kitty, mpv.
+  / .light (+ layout JS: one top bar = launcher +
+  pinned/running apps, centred clock, tray; no dock, no app
+  menu). Konsole, kitty, mpv.
 - `tools/package.sh` -> `dist/` (optional "Install from File"
   packages; release v0.2.0 carries them).
 - `tools/screenshot.sh`: nested KWin + fake HOME, uses theme.sh.
@@ -64,10 +69,10 @@ Not yet run for real (packages, live apply on Kevin's desktop).
    lacks the delete_repo scope: `gh auth refresh -h github.com -s
    delete_repo`, then `gh repo delete uhd3mon/hyprd3mon --yes`).
 2. Kevin, on the laptop: `./install.sh --apply` (or `./apps.sh
-   --apply` and `./theme.sh --apply`; `--layout` for top bar +
-   dock). Hyprland packages must now be removed by hand if wanted.
+   --apply` and `./theme.sh --apply`; `--layout` for the top
+   bar; it replaces his current panels, incl. the old dock). Hyprland packages must now be removed by hand if wanted.
 3. Check in a real session: new window buttons at his scale, GTK
-   apps (Firefox), kitty (untested), Konsole blur, dock states,
+   apps (Firefox), kitty (untested), Konsole blur, task button states,
    `--layout` on two monitors.
 4. Optional: publish to the KDE Store (needs Kevin's account).
 5. Install shellcheck and run it on all scripts.
@@ -113,6 +118,10 @@ Not yet run for real (packages, live apply on Kevin's desktop).
 
 ## Verification observed (2026-10-17)
 
+- Top bar layout change: nested Plasma screenshots dark + light
+  show launcher, browser + pinned apps, centred clock, tray; no
+  dock, no app menu (task manager `fill=false` keeps it compact).
+
 - `bash -n install.sh apps.sh theme.sh lib/common.sh tools/*.sh`
   OK; no "hypr" left in any script.
 - Real-HOME dry runs of apps.sh, theme.sh, install.sh: exit 0;
@@ -146,4 +155,5 @@ Not yet run for real (packages, live apply on Kevin's desktop).
 - d3mon-kde colours (Atlas, 2026-10-17): dark window/header #141416, view #0f0f11, button #1c1c1f (wallpaper #070707). Selection: ChangeSelectionColor=false + explicit [Colors:Selection][Inactive] (dark #2c3322, light #dfeccf); light active selection #c8e2a0 with dark ink. KDE otherwise tints unfocused selection 40% toward accent (olive/lime). Breeze focus/checkbox = DecorationFocus; QPalette::Accent (progress bars) = Selection bg. tools/screenshot.sh pre-writes user-places.xbel (owner http://www.kde.org, GroupState-Devices/RemovableDevices-IsHidden=true, one Home bookmark so KIO keeps the flags). Aurorae bg in tools/gen/aurorae.py still #0d0d0e, should become #141416. (Atlas, 2026-10-17)
 - 2026-10-17: project pivoted from Hyprland to d3mon-kde (KDE Plasma 6 app restore + d3mon theme). New public repo https://github.com/uhd3mon/d3mon-kde (fresh history, commit c5008c6, release v0.1.0 with Install-from-File packages from tools/package.sh). Old hyprd3mon history saved at ~/.local/share/hyprd3mon-archive/hyprd3mon.bundle; old GitHub repo uhd3mon/hyprd3mon NOT yet deleted (gh token lacks delete_repo; Kevin must run gh auth refresh -h github.com -s delete_repo, then gh repo delete). Notes above about hyprd3mon/Hyprland are history. Visual testing: tools/screenshot.sh (nested KWin, fake HOME) — safe, real Plasma screenshots. (Sora, 2026-10-17)
 - d3mon-kde window buttons (Strata, 2026-10-17): Kevin dropped the mac-style round dots. tools/gen/aurorae.py now draws flat 32x24 cells with line glyphs (1.4 px strokes on .5 px coordinates, title text colour, inactive = dim text, deactivated 35%), a rounded hover fill (dark #26272b, light #dcddd8), a stronger pressed fill and a red close hover (#e5534b dark / #e0483f light) with a white X. rc: TitleEdgeTop/Bottom 3, TitleHeight 24, ButtonSpacing 0, TitleEdgeLeft/Right 6. aurorae.py now also writes metadata.json. tools/gen/preview-deco.sh reads the layout from the rc and renders strips at 1x, 1.25x and 1.5x (run it with bash; it isn't executable). Seen in nested Plasma dark + light. (Strata, 2026-10-17)
+- d3mon-kde 2026-10-17 (commit 788366e, pushed): install.sh split into apps.sh (packages, sudo) + theme.sh (all theme files + kitty/mpv configs, per user) + lib/common.sh; install.sh only chains them. Hyprland removal (--remove-hyprland/--remove-hyprd3mon) deleted. Aurorae v2.0 = flat line min/max/close buttons, red close hover (no round dots). History rewritten without Claude co-author lines; release v0.1.0 deleted, v0.2.0 published. Older notes about --remove-hyprland, round buttons and v0.1.0 are stale. (Sora, 2026-10-17)
 <!-- workspace:memory:end -->
